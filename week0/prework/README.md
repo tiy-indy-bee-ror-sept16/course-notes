@@ -159,7 +159,7 @@ These following subjects we'll cover either deeply in class or will touch on onl
 
 If you want to get a better idea of the Ruby (and Rails specifically) community, RailsConf does a great job posting their talk videos.
 
-Here's a huge list of the [2015 conference talks](http://confreaks.tv/events/railsconf2015).
+Here's a huge list of the [2015 conference talks](http://confreaks.tv/events/railsconf2015). And the [2016 talks](http://confreaks.tv/events/railsconf2016) are up as well.
 
 ### Local Indy Community
 
