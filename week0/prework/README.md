@@ -78,10 +78,16 @@ If you haven’t completed it already, Codecademy has a Ruby course that you sho
 
 <http://www.codecademy.com/en/tracks/ruby>
 
-### Supplemental
-HTML/CSS will be covered in the course, but to the same depth as Ruby and Rails, so it would benefit you extremely to be familiar with building websites.
+## HTML & CSS
+HTML/CSS will be covered in the course, but not to the same depth as Ruby and Rails, so it would benefit you extremely to be familiar with building websites.
 
 <http://www.codecademy.com/en/tracks/web>
+
+## JavaScript
+
+The last few weeks of the course we'll be delving in JavaScript. Take the time to get a bit familiar.
+
+<https://www.codecademy.com/learn/javascript>
 
 ## The Command Line
 The command line is an interface to the internals of your computer, as opposed to the graphical user interface (GUI) that we commonly use. We will be using the command line extensively in our class, but the point of this prework is not to be an expert, just to start to get comfortable.
