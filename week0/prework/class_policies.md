@@ -80,7 +80,7 @@ More details on the 15-Minute Rule in a work environment available [here](https:
 
 Your instructor will be available Monday-Friday from 9am until ~5pm. There might be meetings, lunch breaks and other things that come up, but during those times, they will be there to answer questions and help.
 
-If your instructor is at his desk or in a room with the door closed, try to use Slack instead of in-person questions.
+If your instructor is at his desk or in a room with the door closed, try to use Slack instead of in-person questions. The reason: at these times your instructor might be on a phone call or heads-down writing the next day's assignment or grading the previous day's homework.
 
 After hours, access is not guaranteed - a response is _likely_ to happen, not perhaps not quickly. You are welcome to and encouraged to use Slack in those circumstances, however.
 
