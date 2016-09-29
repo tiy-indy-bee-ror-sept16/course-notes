@@ -1,0 +1,48 @@
+.debug {
+  border: 1px solid red;
+  background: url(http://snugug.github.io/responsive-grids/images/symmetric-grid-bootstrap.png);
+  background-size: contain;
+  height: 500px;
+}
+
+.container .jumbotron {
+  border-radius: 0;
+}
+
+#personal .pricing {
+  background: green;
+}
+
+#team .pricing {
+  background: goldenrod;
+}
+
+#enterprise .pricing {
+  background: black;
+}
+
+.active {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.pricing {
+  padding: 10px;
+  color: white;
+}
+
+.bordered li {
+  border-bottom: 1px solid grey;
+}
+
+#tinter {
+  background: blue
+}
+
+#tinter img {
+  opacity: 0.6;
+}
+
+#tinter img:hover {
+  opacity: 1;
+}
