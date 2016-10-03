@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><%= thing %></title>
+  </head>
+  <body>
+    <h1><%= output.upcase %></h1>
+    <ul>
+      <% big_12_teams.each do |team| %>
+        <% sports.each do |sport| %>
+          <li>
+            <% if sport == "Rifle" && team == "West Virginia" %>
+              <%= team %> plays <%= sport %> (and wins titles).
+            <% else %>
+              <%= team %> plays <%= sport %>
+            <% end %>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </body>
+</html>
