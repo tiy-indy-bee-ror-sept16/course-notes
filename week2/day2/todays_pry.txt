@@ -1,0 +1,274 @@
+afc_south = ["Colts", "Jaguars", "Titans", "Texans"]
+afc_south << "Steelers"
+afc_south.pop
+afc_south
+teama = afc_south.pop
+teama
+afc_south
+[1,2,3,4,5,6,7]
+afc_south << teama
+afc_north = ["Steelers", "Browns", "Bengals", "Ravens"]
+afc_south + afc_north
+(afc_south + afc_north) - afc_south
+afc = []
+afc << afc_south
+afc << afc_north
+afc
+afc.length
+afc.first.length
+afc << ["Patriots", "Bills", "Dolphins", "Jets"]
+afc_west = ["Raiders", "Broncos", "Chiefs", "Chargers"]
+afc
+afc + afc_west
+afc
+afc << afc_west
+conference_number = afc.length
+afc.each do |division|
+  puts division.inspect
+end
+afc.each do |division|
+  division.each do |team|
+    puts team
+  end
+end
+afc
+afc.flatten
+afc
+afc.flatten
+short_named_teams = []
+afc.flatten.each do |team|
+  short_named_teams << team if team.length < 6
+end
+short_named_teams
+afc.flatten.select do |team|
+  team.length < 6
+end
+afc.flatten.select{ |team| team.length < 6 }
+afc.flatten.reject{ |team| team.length < 6 }
+afc.flatten.select{ |team| team.length < 6 }
+selected = afc.flatten.select{ |team| team.length < 6 }
+selected
+selected += afc.flatten.reject{ |team| team.length < 6 }
+selected = afc.flatten.select{ |team| team.length < 6 }
+selected << afc.flatten.reject{ |team| team.length < 6 }
+selected.length
+afc
+initials = []
+afc.flatten.each do |team|
+  initials << team[0]
+end
+initials
+afc.flattens.map{|team| team[0]}
+afc.flatten.map{|team| team[0]}
+afc.flatten.map{|x| x[0]}
+afc.flatten.map{|team| team[0]}
+afc
+afc.flatten.includes?("Giants")
+afc.flatten.include?("Giants")
+afc.flatten.include?("Colts")
+afc
+colts_division = afc.select{|division| division.include?("Colts")}
+colts_division = afc.select{|division| division.include?("Colts")}.first
+afc
+colts_division = afc.select{|abcdefg| abcdefg.include?("Colts")}.first
+colts_division = afc.select{|x| x.include?("Colts")}.first
+colts_division = afc.select{|x| x.include?("Colts")}
+colts_division = afc.select{|x| x.include?("Colts")}.first
+colts_division = afc.detect{|x| x.include?("Colts")}
+colts_division = afc.detect{|x| x.include?("Giants")}
+colts_division = afc.find{|x| x.include?("Colts")}
+[1,2,3,4,6].include?(3)
+[1,2,3,4,6].include?(7)
+[1,2,3,4,6].find{|num| num == 7}
+[1,2,3,4,6].find{|num| num == 3}
+afc
+afc.flatten.map do |division|
+  division.first if division.first.start_with? "C"
+end
+afc.map do |division|
+  division.first if division.first.start_with? "C"
+end
+[1,nil, nil, nil]
+[1,nil, nil, nil].compact
+c_divisions = []
+afc.each do |division|
+  c_divisons << divison.first if division.first.start_with? "C"
+end
+afc.each do |division|
+  c_divisions << division.first if division.first.start_with? "C"
+end
+c_divisions
+exit
+3.times.map{|num| num}
+3.times.map{|num| num * 3}
+3.times.map{|num| num * 7}
+exit
+our_hash = {:key1 => "Hi", :key2 => "Ya'll"}
+our_hash = {key1: "Hi", key2: "Ya'll"}
+our_hash[0]
+our_hash.first
+our_hash[:key1]
+our_hash[:key2]
+afc = {}
+afc[:south] = ["Colts", "Jaguars", "Titans", "Texans"]
+afc
+afc[:north] = ["Steelers", "Browns", "Bengals", "Ravens"]
+afc
+afc[:east] = ["Patriots", "Jets", "Bills", "Dolphins"]
+afc[:west] = ["Chargers", "Chiefs", "Raiders", "Broncos"]
+afc
+afc[:south]
+afc[:north]
+afc.each do |thing|
+  puts things.inspect
+end
+afc.each do |thing|
+  puts thing.inspect
+end
+afc.each do |key, value|
+  puts "The AFC #{key.to_s.capitalize} contains the #{value.join(", ")}"
+end
+:sym.capitalize
+:sym.to_s.capitalize
+afc
+nfc = {}
+nfc[:east] = ["Cowboys", "Giants", "Redskins", "Eagles"]
+nfc
+nfc[:south] = ["Saints", "Falcons", "Panthers", "Buccaneers"]
+nfc
+nfc[:west] = ["Rams", "Seahawks", "49ers", "Cardinals"]
+nfc[:north] = ["Lions", "Packers", "Vikings", "Bears"]
+nfc
+afc
+nfl = {}
+nfl[:afc] = afc
+nfl[:nfc] = nfc
+nfl
+nfl.each do |conference|
+  puts conference.inspect
+end
+nfl.each do |conference, divisions|
+  puts "The #{conference.to_s.upcase} contains:"
+  divisions.each do |division, teams|
+    puts "The #{conference.to_s.upcase} #{division.to_s.capitalize}:"
+    teams.each do |team|
+      puts team
+    end
+  end
+end
+nfl
+nfl[:efc]
+exit
+:samuel == "samuel"
+tv_shows = []
+tv_shows << {title: "Seinfeld", characters: ["Seinfeld", "Kramer", "George", "Elaine", "NEWMAN"], genre: "comedy", network: "NBC"}
+tv_shows << {title: "The Simpsons", characters: ["Homer", "Marge", "Sideshow Bob", "Bart", "Maggie", "Lisa"], genre: ["comedy", "animated"], network: "Fox"}
+nbc_shows = []
+tv_shows.each do |show|
+  nbc_shows << show if show[:network] == "NBC"
+end
+nbc_shows
+nbc_shows.map{|show| show[:title]}
+nbc_shows.collect{|show| show[:title]}
+nbc_show_names = []
+nbc_shows.each do |show|
+  nbc_show_names << show[:title]
+end
+nbc_show_names
+george_shows = []
+tv_shows.each do |show|
+  george_shows << show[:title] if show[:characters] == "George"
+end
+george_shows
+tv_shows.each do |show|
+  george_shows << show[:title] if show[:characters].include? "George"
+end
+george_shows
+george_shows = tv_shows.select{|show| show[:characters].include? "George"}.collect{|show| show[:title]}
+george_shows = tv_shows.select{|show| show[:characters].include? "George"}
+george_shows = tv_shows.filter{|show| show[:characters].include? "George"}.collect{|show| show[:title]}
+tv_shows.any? { |show| show[:network] == "NBC" }
+tv_shows.any? { |show| show[:network] == "ABC" }
+tv_shows.all? { |show| show[:network] == "NBC" }
+tv_shows
+[1,2,3,4,5,6]
+sum = 0
+numbers = [1,2,3,5,6]
+numbers.each do |num|
+  sum += num
+end
+sum
+numbers.reduce{ |sum, num| sum + num }
+numbers.reduce(0){ |sum, num| sum + num }
+tv_shows
+characters = tv_shows.map{|show| show[:characters]}
+characters = tv_shows.map{|show| show[:characters]}.flatten
+characters = tv_shows.map{|show| show[:characters]}
+tv_shows
+tv_shows << {title: "Firefly", characters: ["Mal", "Wash", "Cloe", "Jane"], genre: ["sci-fi", "western"], network: "Fox"}
+tv_shows.select{|show| show[:network] == "Fox"}
+tv_shows.select{|show| show[:network] == "Fox"}.map{|show| show[:title]}
+tv_shows.select{|show| show[:network] == "Fox"}.collect{|show| show[:title]}
+fox_characters = tv_shows{|show| show[:network] = "Fox"}.collect{|show| show[:characters]}.flatten.to_s
+fox_characters = tv_shows.select{|show| show[:network] = "Fox"}.collect{|show| show[:characters]}.flatten.to_s
+fox_characters = tv_shows.select{|show| show[:network] = "Fox"}.collect{|show| show[:characters]}.flatten
+tv_shows
+tv_shows.first
+tv_shows.first[:network]
+tv_shows.first[:network] = "NBC"
+tv_shows
+fox_characters = tv_shows.select{|show| show[:network] == "Fox"}.collect{|show| show[:characters]}.flatten
+fox_characters = tv_shows.select{|show| show[:network] == "Fox"}.collect{|show| show[:characters]}.flatten.join(", ")
+exit
+string = "BESPOKE street art pitchfork poke prism meggings bicycle rights fam. Paleo tattooed beard, gastropub messenger bag bushwick flexitarian kombucha gluten-free vinyl franzen banjo. Scenester quinoa tbh, umami man braid lyft knausgaard migas before they sold out cliche hell of hammock helvetica bitters. Yr waistcoat crucifix chia authentic hoodie. Poke four loko af butcher, cray gastropub sustainable kinfolk deep v williamsburg meditation listicle."
+string.split(" ")
+string.split(" ").length
+exit
+teams = ["Colts", "Titans", "Raiders", "Chargers"]
+teams = %w(Colts Titans Raiders Chargers)
+teams.each do |x|
+  puts x
+end
+c_teams = []
+teams.each do |x|
+  c_teams << x if x[0] == "C"
+end
+c_teams
+c_teams = []
+teams.each do |x|
+  if x[0] == "C"
+    c_teams << x
+  end
+end
+c_teams
+our_hash = {channel: "Zero", watchers: "she"}
+our_hash[:channel]
+puts "#{our_hash[:watchers]} watch Channel #{our_hash[:channel]}"
+our_hash.keys
+our_hash.values
+[1,2,3] == [3,2,1]
+our_hash
+our_hash.reverse
+our_hash2 = {watchers: "she", channel: "Zero"}
+our_hash == our_hash2
+our_hash.first
+arr = [our_hash, our_hash2]
+arr.each do |hash|
+  puts hash[:channel]
+end
+arr.each do |hash|
+  puts hash[:channel].upcase
+end
+arr.each do |hash|
+  puts hash[:channel].split(//).length
+end
+arr.each do |hash|
+  puts hash[:channel].split(//).join("ha")
+end
+arr
+arr << {key1: "hey"]
+arr << {key1: "hey"}
+arr.each do |hash|
+  puts hash[:channel].split(//).join("ha")
+end
+exit
