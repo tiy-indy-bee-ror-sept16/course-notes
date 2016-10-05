@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><%= person.name %>'s homepage</title>
+  </head>
+  <body>
+
+    <h1>Hi, I'm <%= person.name %></h1>
+    <h6>(and I am <%= person.age %> years old)</h6>
+    <p>
+      <%= person.how_tall? %>
+    </p>
+    <p>
+      <%= person.💩 %>
+    </p>
+
+    <h3>I have <%= person.babies.length %> babies, here's deets:</h3>
+
+    <% person.babies.each do |baby| %>
+      <ul>
+        <li>
+          My name is <%= baby.name %>
+        </li>
+        <li>
+          <%= baby.how_tall? %>
+        </li>
+        <li>
+          My parent's name is <%= baby.parent.name %>
+        </li>
+      </ul>
+    <% end %>
+
+    <ol>
+      <% arr.each do |num| %>
+        <li>
+          <%= num %>
+        </li>
+      <% end %>
+    </ol>
+
+  </body>
+</html>
