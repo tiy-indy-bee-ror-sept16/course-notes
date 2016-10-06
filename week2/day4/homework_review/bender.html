@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+function drawChart() {
+
+  var data = google.visualization.arrayToDataTable([
+    ['Task', 'Hours per Day'],
+    ['Work',     11],
+    ['Eat',      2],
+    ['Commute',  2],
+    ['Watch TV', 2],
+    ['Sleep',    7]
+  ]);
+
+  var options = {
+    title: 'Bender\'s Daily Activites'
+  };
+
+  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+  chart.draw(data, options);
+}
+    </script>
+  </head>
+  <body>
+    <h1>Hi, I'm Bender</h1>
+    <p>
+      You asked me to bend Shiny, so, here you go:
+    </p>
+    <h1>Bend Shiny!</h1>
+
+    <h1>Cybermen were here</h1>
+    <div id="piechart" style="width: 900px; height: 900px;"></div>
+    <ul>
+      
+        <li>
+          <img src="https://robohash.org/Luis" />
+          Luis :: 10, made of Iron and a Robot
+        </li>
+      
+        <li>
+          <img src="https://robohash.org/Zach" />
+          Zach :: 10, made of Iron and a BendingUnit
+        </li>
+      
+        <li>
+          <img src="https://robohash.org/Michael" />
+          Michael :: 10, made of Iron and a ActorUnit
+        </li>
+      
+        <li>
+          <img src="https://robohash.org/Brent" />
+          Brent :: 10, made of Iron and a ActorUnit
+        </li>
+      
+        <li>
+          <img src="https://robohash.org/Jon" />
+          Jon :: 10, made of Iron and a Robot
+        </li>
+      
+        <li>
+          <img src="https://robohash.org/Keith" />
+          Keith :: 10, made of Iron and a BendingUnit
+        </li>
+      
+        <li>
+          <img src="https://robohash.org/Chris" />
+          Chris :: 10, made of Iron and a ActorUnit
+        </li>
+      
+    </ul>
+  </body>
+</html>
