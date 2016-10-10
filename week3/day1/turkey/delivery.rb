@@ -9,6 +9,7 @@ class Delivery
     map["Earth"]  = "Fry"
     map["Mars"]   = "Amy"
     map["Uranus"] = "Bender"
+    map["Jupiter"] = "Zoidberg"
     map
   end
 
