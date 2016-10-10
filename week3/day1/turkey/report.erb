@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Planet Express Weekly Report</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Pilot', 'Revenue'],
+          <% data.pilot_records.each do |pilot| %>
+            ['<%= pilot.name %>',     <%= pilot.revenue %>],
+          <% end %>
+        ]);
+
+        var options = {
+          title: 'Revenue by pilot'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('pilot_chart'));
+
+        chart.draw(data, options);
+
+        var data2 = google.visualization.arrayToDataTable([
+          ['Planet', 'Revenue'],
+          <% data.planet_records.each do |planet| %>
+            ['<%= planet.name %>',     <%= planet.revenue %>],
+          <% end %>
+        ]);
+
+        var options2 = {
+          title: 'Revenue by planet'
+        };
+
+        var chart2 = new google.visualization.PieChart(document.getElementById('planet_chart'));
+
+        chart2.draw(data2, options2);
+
+      }
+    </script>
+    <style type="text/css">
+      #pilot_chart, #planet_chart {
+        height: 40vw;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <h1>We made <%= data.revenue_display %> this week</h1>
+      </div>
+      <div class="row" id="charts">
+        <div class="col-xs-6" id="pilot_chart"></div>
+        <div class="col-xs-6" id="planet_chart"></div>
+      </div>
+      <div class="row">
+        <h3>All deliveries</h3>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <% data.delivery_attributes.each do |field| %>
+                <th>
+                  <%= field.to_s.capitalize %>
+                </th>
+              <% end %>
+            </tr>
+          </thead>
+          <tbody>
+            <% data.deliveries.each do |delivery| %>
+              <tr>
+                <% data.delivery_attributes.each do |method| %>
+                  <td>
+                    <% if method == :money %>
+                      <%= data.class.money_display(delivery.send(method)) %>
+                    <% else %>
+                      <%= delivery.send(method) %>
+                    <% end %>
+                  </td>
+                <% end %>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <h3>Pilots</h3>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>
+                Name
+              </th>
+              <th>
+                Trips
+              </th>
+              <th>
+                Bonus
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <% data.pilot_records.each do |pilot| %>
+              <tr>
+                <td>
+                  <%= pilot.name %>
+                </td>
+                <td>
+                  <%= pilot.trips %>
+                </td>
+                <td>
+                  <%= data.class.money_display(pilot.bonus) %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <div class="row">
+        <div class="col-xs-6">
+          <img src="http://i.giphy.com/11Lz1Y4n1f2j96.gif" alt="coffee" class="img-responsive" />
+        </div>
+        <div class="col-xs-6">
+          <img src="http://i.giphy.com/ECRWpamBUH3J6.gif" alt="Mondays, amiright?" class="img-responsive" />
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>
