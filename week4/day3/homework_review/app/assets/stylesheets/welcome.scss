@@ -1,0 +1,22 @@
+// Place all the styles related to the Welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$paragraph_color: black;
+
+#welcome {
+  p {
+    color: $paragraph_color;
+  }
+
+  h1 {
+    background-color: lighten($paragraph_color, 27);
+  }
+
+  .green {
+    color: green;
+  }
+
+  background-image: image-url("gifs/giphy.gif");
+
+}

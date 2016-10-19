@@ -1,0 +1,11 @@
+<%= link_to "Home", root_path %>
+<h1>Hello, I am <%= @name %>'s <%= @phrase %></h1>
+
+<h6>Make Jack say one of:</h6>
+<p>
+  <%= @possible_phrases.collect do |key, value| %>
+    <% link_to value, id: key %>
+  <% end.to_sentence.html_safe %>
+</p>
+
+<%= number_to_currency(1234567.23) %>
