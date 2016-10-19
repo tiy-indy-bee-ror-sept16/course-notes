@@ -1,0 +1,18 @@
+<h1><%= @message %></h1>
+
+
+<!-- <%= link_to(image_tag("gifs/giphy"), hello_path(name: "Jack")) %> -->
+<%= link_to hello_path(name: "Jack") do %>
+  <%= image_tag("gifs/giphy") %>
+<% end %>
+
+
+<ul>
+  <% @lipsums.each do |lip| %>
+    <li>
+      <%= link_to lip, zach_path(lipsum_wanted: lip, num: rand(1..5)), class: "green" %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Say Hi", hello_path(name: "Jack") %>
