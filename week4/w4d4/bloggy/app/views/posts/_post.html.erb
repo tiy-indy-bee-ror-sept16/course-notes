@@ -7,6 +7,6 @@
             <%= post.body.truncate(60) %>
         </h3>
     <% end %>
-    <p class="post-meta">Posted by <%= link_to post.author.name, author_path(id: post.author.id) %> on <%= post.created_at.strftime("%B %e, %Y") %></p>
+    <p class="post-meta">Posted by <%= post.author %> on <%= post.created_at.strftime("%B %e, %Y") %></p>
 </div>
 <hr>

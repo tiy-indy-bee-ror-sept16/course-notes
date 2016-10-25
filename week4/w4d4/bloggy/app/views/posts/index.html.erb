@@ -1,3 +1,15 @@
+<div class="post-preview">
+  <%= link_to post_path(id: @post.id) do %>
+        <h2 class="post-title">
+            <%= @post.title %>
+        </h2>
+    <% end %>
+    <p class="post-meta">Posted by <%= @post.author %> on <%= @post.created_at.strftime("%B %e, %Y") %></p>
+</div>
+
+<%= simple_format(@post.body) %>
+
+<h6>Other posts</h6>
 <% @posts.each do |post| %>
   <%= render partial: 'post', locals: {post: post} %>
 <% end %>
