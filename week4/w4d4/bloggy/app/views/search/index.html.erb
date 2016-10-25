@@ -1,0 +1,10 @@
+<h6>Posts matching '<%= params[:query] %>'</h6>
+<% if @posts.empty? %>
+  <p>
+    No posts match this query.
+  </p>
+<% else %>
+  <% @posts.each do |post| %>
+    <%= render partial: 'posts/post', locals: {post: post} %>
+  <% end %>
+<% end %>
