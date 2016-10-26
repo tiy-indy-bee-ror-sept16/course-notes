@@ -14,16 +14,15 @@ class PostsController < ApplicationController
 
   # Creates a new post
   def create
+    Rails.logger.info post_params.inspect
     # render text: params[:post].inspect
-    @post = Post.new
-    # @post.title = params.[](:post).[](:title)
-    @post.title = [:title]
-    @post.summary = params[:post][:summary]
-    @post.body = params[:post][:body]
-    @post.author = params[:post][:author]
+    @post = Post.new(post_params)
     # render text: @post.inspect
-    @post.save
-    redirect_to root_path
+    if @post.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   # Shows a specific post
@@ -37,12 +36,7 @@ class PostsController < ApplicationController
 
   # Updates a specific post
   def update
-    @post.title = params[:post][:title]
-    @post.summary = params[:post][:summary]
-    @post.body = params[:post][:body]
-    @post.author = params[:post][:author]
-    # render text: @post.inspect
-    @post.save
+    @post.update(post_params)
     redirect_to post_path(id: @post.id)
   end
 
@@ -56,6 +50,10 @@ class PostsController < ApplicationController
 
   def find_post
     @post = Post.find(params[:id])
+  end
+
+  def post_params
+    params.require(:post).permit(:title, :body, :author, :summary)
   end
 
 
