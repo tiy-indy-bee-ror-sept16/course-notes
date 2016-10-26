@@ -1,0 +1,9 @@
+<%= link_to "New Post", new_post_path %>
+
+<% @posts.each do |post| %>
+
+  <h1><%= link_to post.title, post_path(id: post.id) %></h1>
+  <h4><%= post.summary %></h4>
+  <%= link_to "Delete with extreme prejudice", post_path(id: post.id), method: :delete, data: { confirm: "Are you sure?" } %>
+
+<% end %>
