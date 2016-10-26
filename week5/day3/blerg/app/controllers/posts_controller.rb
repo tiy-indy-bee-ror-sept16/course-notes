@@ -36,8 +36,11 @@ class PostsController < ApplicationController
 
   # Updates a specific post
   def update
-    @post.update(post_params)
-    redirect_to post_path(id: @post.id)
+    if @post.update(post_params)
+      redirect_to post_path(id: @post.id)
+    else
+      render :new
+    end
   end
 
   # Destroys a specific post
