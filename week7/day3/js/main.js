@@ -3,7 +3,7 @@ $(document).ready(function(){
     if(logged_in() === false){
         $('#signup_form, #login_form').show()
     } else {
-      $('#user_info').append('<a href="#" id="logout" class="btn btn-danger">Logout</a>')
+      user_info()
     }
   }
 
@@ -28,21 +28,15 @@ function toggle_submit(selector){
   }
 }
 
-function handle_signup(response){
+function handle_user_forms(response, selector){
   store_info(response.user)
   clear_alerts()
-  clear_form('#formie')
+  clear_form(selector)
   $('#signup_form, #login_form').hide()
-  $('#user_info').html("<h1>Hello, " + username() + "</h1>")
-  $('#user_info').append('<a href="#" id="logout" class="btn btn-danger">Logout</a>')
+  user_info()
 }
 
-function handle_login(response){
-  store_info(response.user)
-  clear_alerts()
-  clear_form('#login')
-  $('#signup_form, #login_form').hide()
-  // $('#login').hide()
+function user_info(){
   $('#user_info').html("<h1>Hello, " + username() + "</h1>")
   $('#user_info').append('<a href="#" id="logout" class="btn btn-danger">Logout</a>')
 }
@@ -90,6 +84,7 @@ function handle_errors(selector, response){
     $('#alerts').html('')
     $('#alerts').append('<div class="alert alert-danger" role="alert">' + err + '</div>')
   })
+  toggle_submit(selector)
 }
 
 $('.click_me').on('click', function(ev){
@@ -115,7 +110,7 @@ $('#formie').on('submit', function(ev){
     'https://desolate-sands-90495.herokuapp.com/users',
     $( this ).serializeArray()
   ).done(function(response){
-    handle_signup(response)
+    handle_user_forms(response, '#formie')
   }).fail(function(response){
     handle_errors('#formie', response)
   })
@@ -130,7 +125,7 @@ $('#login').on('submit', function(ev){
     'https://desolate-sands-90495.herokuapp.com/log_in',
     $( this ).serializeArray()
   ).done(function(response){
-    handle_login(response)
+    handle_user_forms(response, '#login')
   }).fail(function(response){
     handle_errors('#login', response)
   })
