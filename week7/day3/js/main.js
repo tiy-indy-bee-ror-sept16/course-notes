@@ -1,13 +1,22 @@
 $(document).ready(function(){
   function prepare_doc(){
+    load_photos()
     if(logged_in() === false){
         $('#signup_form, #login_form').show()
+        $('#photo_form').hide()
     } else {
       user_info()
+      // Show photo form
+      $('#photo_form').show()
     }
   }
 
   prepare_doc()
+
+  if(window.location.hash.match(/#\d+/).length > 0) {
+    id = window.location.hash.substring(1)
+    $('#photo_holder').modal('show')
+  }
 
 })
 
@@ -34,6 +43,7 @@ function handle_user_forms(response, selector){
   clear_form(selector)
   $('#signup_form, #login_form').hide()
   user_info()
+  $('#photo_form').show()
 }
 
 function user_info(){
@@ -69,6 +79,7 @@ function logout(){
   localStorage.setItem('username', '')
   $('#signup_form, #login_form').show()
   $('#user_info').html('')
+  $('#photo_form').hide()
 }
 
 function logged_in(){
@@ -134,4 +145,43 @@ $('#login').on('submit', function(ev){
 $(document).on('click', '#logout', function(ev){
   ev.preventDefault()
   logout()
+})
+
+// Photo upload shtuff
+
+function load_photos(){
+  $.getJSON('https://desolate-sands-90495.herokuapp.com/photos')
+  .then(function(response){
+    response.photos.forEach(function(photo){
+      $('#photos').prepend('<img src="https://desolate-sands-90495.herokuapp.com/' + photo.photo + '" width=200 /><p>' + photo.caption + '</p>')
+    })
+  })
+}
+
+function handle_photo_submit(response) {
+  $('#photos').prepend('<img src="https://desolate-sands-90495.herokuapp.com/' + response.photo.photo + '" width=200 /><p>' + response.photo.caption + '</p>')
+  clear_form('#upload')
+}
+
+$('#upload').on('submit', function(ev){
+  ev.preventDefault()
+  toggle_submit('#upload')
+  // data = $( this ).serializeArray()
+  // data.push({name: 'api_token', value: api_token()})
+  var formData = new FormData(document.getElementById('upload'));
+  formData.append('api_token', api_token())
+  $.post(
+    {
+      url: 'https://desolate-sands-90495.herokuapp.com/photos',
+      data: formData,
+      processData: false,
+      dataType: 'json',
+      contentType: false
+    }
+  ).done(function(response){
+    handle_photo_submit(response)
+  }).fail(function(response){
+    handle_errors('#upload', response)
+  })
+
 })
