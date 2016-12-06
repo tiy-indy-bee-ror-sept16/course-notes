@@ -1,3 +1,5 @@
+# **NOTE:** Howdy. If you're enrolling in the January 2017 cohort (yay!), there is updated prework [over here](https://github.com/tiy-indy-bee-ror-jan17/course_notes/tree/master/week0/prework)
+
 # Welcome
 I hope you all are as excited as I am about getting this class started. It is in the best interest of everyone to make sure you as prepared as possible for the coming twelve weeks. Through large amounts of hard work and determination, you will learn, grow, and achieve.
 
