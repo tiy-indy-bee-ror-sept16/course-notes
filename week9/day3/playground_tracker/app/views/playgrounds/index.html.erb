@@ -1,0 +1,9 @@
+<h1>Search near you!</h1>
+<%= form_for :search, method: :get do |f| %>
+  <%= f.text_field :address, placeholder: "Full address" %>
+  <%= f.number_field :distance, placeholder: "range in miles" %>
+  <%= f.submit "Go play!" %>
+<% end %>
+
+
+<%= render @playgrounds %>

@@ -1,0 +1,10 @@
+<%= render @playground %>
+
+
+<h2>Nearby playgrounds</h2>
+
+<%= render @playground.nearby(10) %>
+<!-- 
+<% @playground.nearby(10).each do |item| %>
+  <%= render partial: item.class.to_s.downcase, locals: {item.class.to_s.downcase.to_sym => item} %>
+<% end %> -->
